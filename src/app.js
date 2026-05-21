@@ -18,24 +18,11 @@ const app = express();
 app.use(
   helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" },
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        imgSrc: ["'self'", "data:", "*"],
-        styleSrc: ["'self'", "'unsafe-inline'", "https:"],
-        scriptSrc: ["'self'"],
-        fontSrc: ["'self'", "https:", "data:"],
-      },
-    },
   })
 );
 
-// Gzip Compression (brotli disabled for compatibility with img tags)
-app.use(
-  compression({
-    brotli: false,
-  })
-);
+// Gzip Compression
+app.use(compression());
 
 // CORS Configuration
 const corsOptions = {
