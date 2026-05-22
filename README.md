@@ -59,7 +59,7 @@ hospital-app-backend/
 ### 2. Clone and Install
 ```bash
 git clone <repository-url>
-cd hospital-app-backend
+cd node-hospital-backend
 npm install
 ```
 
@@ -67,15 +67,20 @@ npm install
 Create a `.env` file in the root directory and add the following variables:
 ```env
 PORT=5000
-MONGODB_URI=your_mongodb_connection_string
+MONGODB_URI=your_mongodb_connection_string (local or atlas)
 JWT_SECRET=your_super_secret_jwt_key
 JWT_EXPIRES_IN=8h
 BCRYPT_SALT_ROUNDS=12
 RATE_LIMIT_WINDOW_MS=900000
 RATE_LIMIT_MAX=100
 ```
+### 4. Seed Initial Data to register a default admin user
+```bash
+#just run this once to create the admin user (email: admin@hospital.com, password: Hospital@123)
+node src/scripts/seed.js
+```
 
-### 4. Run the Application
+### 5. Run the Application
 ```bash
 # Development mode (with nodemon)
 npm run dev
@@ -83,6 +88,7 @@ npm run dev
 # Production mode
 npm start
 ```
+
 
 ---
 
@@ -118,7 +124,7 @@ npm start
 
 ```json
 {
-  "email": "hospital@admin.com",
+  "email": "admin@hospital.com",
   "password": "Hospital@123"
 }
 ```
@@ -137,7 +143,7 @@ npm start
     "user": {
       "_id": "6a0040d87a3e9bad908f9d4f",
       "name": "Super Admin",
-      "email": "hospital@admin.com",
+      "email": "admin@hospital.com",
       "phone": "9999999999",
       "role": "admin",
       "status": "active",
@@ -185,7 +191,7 @@ npm start
   "data": {
     "_id": "6a0040d87a3e9bad908f9d4f",
     "name": "Super Admin",
-    "email": "hospital@admin.com",
+    "email": "admin@hospital.com",
     "phone": "9999999999",
     "role": "admin",
     "status": "active",
