@@ -76,7 +76,7 @@ RATE_LIMIT_MAX=100
 ```
 ### 4. Seed Initial Data to register a default admin user
 ```bash
-#just run this once to create the admin user (email: admin@hospital.com, password: Hospital@123)
+# just run this once to create the admin user (email: admin@hospital.com, password: Hospital@123)
 node src/scripts/seed.js
 ```
 
